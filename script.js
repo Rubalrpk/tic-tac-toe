@@ -25,14 +25,14 @@ function handleCellClick(e) {
   e.target.textContent = currentPlayer;
 
   if (checkWinner()) {
-    statusText.textContent = Player ${currentPlayer} wins!;
+    statusText.textContent = `Player ${currentPlayer} wins!`;
     gameActive = false;
   } else if (!gameState.includes("")) {
     statusText.textContent = "It's a draw!";
     gameActive = false;
   } else {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
-    statusText.textContent = Player ${currentPlayer}'s turn;
+    statusText.textContent = `Player ${currentPlayer}'s turn`;
   }
 }
 
@@ -51,7 +51,7 @@ function restartGame() {
   currentPlayer = "X";
   gameActive = true;
   gameState = ["", "", "", "", "", "", "", "", ""];
-  statusText.textContent = Player ${currentPlayer}'s turn;
+  statusText.textContent = `Player ${currentPlayer}'s turn`;
   cells.forEach((cell) => (cell.textContent = ""));
 }
 
@@ -59,4 +59,4 @@ cells.forEach((cell) => cell.addEventListener("click", handleCellClick));
 restartBtn.addEventListener("click", restartGame);
 
 // Initialize
-statusText.textContent = Player ${currentPlayer}'s turn;
+statusText.textContent = `Player ${currentPlayer}'s turn`;
